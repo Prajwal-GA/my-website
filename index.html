@@ -1026,19 +1026,19 @@
     <!-- Header -->
     <header id="header">
         <nav>
-            <div class="logo" onclick="scrollTo('home')">PGA</div>
+            <div class="logo" onclick="scrollToSection('home')">PGA</div>
             <div class="mobile-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a onclick="scrollTo('home')">Home</a></li>
-                <li><a onclick="scrollTo('about')">About</a></li>
-                <li><a onclick="scrollTo('experience')">Experience</a></li>
-                <li><a onclick="scrollTo('projects')">Projects</a></li>
-                <li><a onclick="scrollTo('skills')">Skills</a></li>
-                <li><a onclick="scrollTo('contact')">Contact</a></li>
+                <li><a onclick="scrollToSection('home')">Home</a></li>
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                <li><a onclick="scrollToSection('skills')">Skills</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -1057,13 +1057,13 @@
                 Actively Seeking Full-Time Opportunities | June 2026 Graduate
             </div>
             <div class="cta-buttons">
-                <a href="#projects" onclick="scrollTo('projects')" class="cta-btn cta-btn-primary">
+                <a href="#projects" onclick="scrollToSection('projects')" class="cta-btn cta-btn-primary">
                     <i class="fas fa-rocket"></i> Explore My Work
                 </a>
                 <a href="Prajwal Guntnur Anantha.pdf" target="_blank" class="cta-btn cta-btn-secondary">
                     <i class="fas fa-file-pdf"></i> Resume
                 </a>
-                <a href="#contact" onclick="scrollTo('contact')" class="cta-btn cta-btn-secondary">
+                <a href="#contact" onclick="scrollToSection('contact')" class="cta-btn cta-btn-secondary">
                     <i class="fas fa-envelope"></i> Get in Touch
                 </a>
             </div>
@@ -1592,7 +1592,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Smooth scroll
-function scrollTo(id) {
+function scrollToSection(id) {
     const element = document.getElementById(id);
     const offset = 80;
     const elementPosition = element.offsetTop - offset;
