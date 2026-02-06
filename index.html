@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prajwal Guntnur Anantha - Data Analytics Engineer crafting intelligent solutions from chaos. MS candidate at Northeastern University specializing in ML-powered automation, deep learning, and production-grade analytics.">
+    <meta name="keywords" content="Data Analytics, Machine Learning, Deep Learning, Python, SQL, Tableau, Power BI, Azure AI, Business Intelligence">
+    <meta name="author" content="Prajwal Guntnur Anantha">
+    <title>Prajwal GA | Data Analytics Engineer & ML Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b9d;
+            --accent: #c471f5;
+            --dark: #0a0e27;
+            --darker: #050816;
+            --light: #f8f9fa;
+            --text-light: rgba(255, 255, 255, 0.9);
+            --text-muted: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-light);
+            background: var(--darker);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 157, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(196, 113, 245, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 39, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .mobile-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5% 50px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .cta-btn-secondary:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 5%;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .profile-card {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .profile-img-wrapper {
+            width: 100%;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .profile-img-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            max-width: 900px;
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .timeline-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-duration {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .timeline-description {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary);
+            border-radius: 5px;
+        }
+
+        .timeline-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .timeline-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-img {
+            height: 250px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(196, 113, 245, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover .project-img::after {
+            left: 100%;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .skill-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+        }
+
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .contact-item h4 {
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.8);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--darker);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 22, 0.95);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--dark);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 157, 0.2);
+            border: 1px solid var(--secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--secondary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem;
+        }
+
+        .modal ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal ul li {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .modal ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-container {
+                gap: 2.5rem;
+            }
+
+            .profile-img-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 2rem;
+            }
+
+            .timeline-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 300px;
+                background: rgba(10, 14, 39, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+                gap: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 80px;
+            }
+
+            .timeline-icon {
+                position: absolute;
+                left: 0;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="stars" id="stars"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo" onclick="scrollTo('home')">PGA</div>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="scrollTo('home')">Home</a></li>
+                <li><a onclick="scrollTo('about')">About</a></li>
+                <li><a onclick="scrollTo('experience')">Experience</a></li>
+                <li><a onclick="scrollTo('projects')">Projects</a></li>
+                <li><a onclick="scrollTo('skills')">Skills</a></li>
+                <li><a onclick="scrollTo('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Hey! I'm <span class="gradient-text">Prajwal</span>
+            </h1>
+            <p class="hero-subtitle">
+                Data Analytics Engineer | ML Specialist | Building Intelligent Solutions from Chaos
+            </p>
+            <div class="status-badge">
+                <span class="pulse-dot"></span>
+                Actively Seeking Full-Time Opportunities | June 2026 Graduate
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" onclick="scrollTo('projects')" class="cta-btn cta-btn-primary">
+                    <i class="fas fa-rocket"></i> Explore My Work
+                </a>
+                <a href="Prajwal Guntnur Anantha.pdf" target="_blank" class="cta-btn cta-btn-secondary">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+                <a href="#contact" onclick="scrollTo('contact')" class="cta-btn cta-btn-secondary">
+                    <i class="fas fa-envelope"></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title gradient-text">About Me</h2>
+        <p class="section-subtitle">Transforming Data Chaos into Strategic Clarity</p>
+        
+        <div class="about-container">
+            <div class="profile-card">
+                <div class="profile-img-wrapper">
+                    <div class="profile-img-inner">
+                        <img src="PHOTO-2025-05-26-13-18-31.jpg" alt="Prajwal Guntnur Anantha" onerror="this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size: 5rem;\'></i>';">
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-text">
+                <p>
+                    What's up! I'm a <span class="highlight">Data Analytics Engineer</span> currently pursuing my Master's at 
+                    Northeastern University (GPA: 3.9), and here's what gets me fired up: <strong>turning messy data into 
+                    game-changing insights that actually move the needle.</strong>
+                </p>
+                <p>
+                    With <span class="highlight">2.5+ years</span> of hands-on experience at companies like Revvity and Unisys, 
+                    I've learned that the best data solutions aren't just about fancy algorithms—they're about solving real problems. 
+                    Whether it's building <strong>AI-powered automation that saves 40+ hours monthly</strong>, developing 
+                    <strong>deep learning models predicting bridge lift times with ±5-minute accuracy</strong>, or creating 
+                    <strong>real-time dashboards supporting Fortune 500 banking systems</strong>, I thrive on making the complex simple.
+                </p>
+                <p>
+                    My toolkit? <span class="highlight">Python, SQL, Azure AI, Power BI, Tableau</span>—but honestly, 
+                    I'm tool-agnostic. I care more about <strong>impact</strong> than tech stacks. I've automated ETL processes 
+                    improving efficiency by 40%, validated AI chatbots achieving 93% accuracy, and built computer vision systems 
+                    eliminating manual labor in logistics. The common thread? <strong>Making data work harder so people don't have to.</strong>
+                </p>
+                <p>
+                    Currently, I'm exploring the intersection of <span class="highlight">deep learning and operational analytics</span>—
+                    think predictive models that don't just forecast what'll happen, but enable proactive decisions. My MassDOT project 
+                    (predicting bridge operations) and crime analysis work (87% accuracy in shooting prediction) are perfect examples 
+                    of this philosophy in action.
+                </p>
+                <p>
+                    <strong>What drives me?</strong> The "aha!" moment when a stakeholder sees their data tell a story they never 
+                    knew existed. The satisfaction of watching a manual process disappear because I automated it. The thrill of 
+                    deploying a model that actually works in production (not just in a Jupyter notebook).
+                </p>
+                <p>
+                    I'm passionate about <span class="highlight">production-grade analytics</span>—not proof-of-concepts that gather 
+                    dust, but solutions that ship, scale, and create measurable business value. Whether it's manufacturing (Revvity), 
+                    enterprise banking (Unisys), or public infrastructure (MassDOT), I bring the same approach: understand the problem, 
+                    build smart, iterate fast, deliver impact.
+                </p>
+                <p>
+                    Looking for someone who can bridge the gap between data science theory and business reality? Someone who codes 
+                    as comfortably as they present to executives? Someone who's built both <strong>Azure AI Search + ChatGPT RAG 
+                    architectures</strong> AND <strong>PowerShell scripts that just... work</strong>? Let's connect.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2.5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3.9</div>
+                        <div class="stat-label">GPA / 4.0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2 class="section-title gradient-text">Professional Journey</h2>
+        <p class="section-subtitle">Building Production-Grade Analytics Solutions</p>
+
+        <div class="timeline">
+            <!-- Revvity -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Data Analyst / Data Science Intern</h3>
+                        <div class="timeline-company">Revvity (Life Sciences & Pharmaceuticals) | Boston, MA</div>
+                        <div class="timeline-duration">September 2025 - December 2025</div>
+                    </div>
+                    <div class="timeline-description">
+                        <strong>Impact:</strong> Delivered AI-powered automation and BI solutions for pharmaceutical manufacturing, 
+                        eliminating 40+ hours of monthly manual work and enabling real-time quality monitoring across global operations.
+                    </div>
+                    <ul class="timeline-list">
+                        <li><strong>AI Document Processing:</strong> Automated historical data extraction from 1,000+ handwritten 
+                        formulation PDFs using Power Automate and AI Builder, achieving 91% accuracy in <7 seconds per document</li>
+                        <li><strong>Digital Forms Development:</strong> Engineered 7 Excel-based digital forms with VBA macros and 
+                        multi-phase validation logic, eliminating manual entry errors through real-time email alerts</li>
+                        <li><strong>Manufacturing Data Pipeline:</strong> Built end-to-end pipeline processing 500+ monthly records 
+                        from Excel forms to SharePoint cloud storage, developing Power BI dashboards for real-time KPIs</li>
+                        <li><strong>AI Compliance Validation:</strong> Validated AI chatbot (Azure AI Search + ChatGPT RAG) through 
+                        50+ test scenarios across FDA/ISO/GMP standards, confirming 93% accuracy before deployment</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Power Automate</span>
+                        <span class="tech-tag">AI Builder</span>
+                        <span class="tech-tag">VBA</span>
+                        <span class="tech-tag">SharePoint</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Azure AI Search</span>
+                        <span class="tech-tag">ChatGPT RAG</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unisys -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Data Analyst</h3>
+                        <div class="timeline-company">Unisys (Enterprise Banking Solutions) | Bengaluru, India</div>
+                        <div class="timeline-duration">September 2022 - August 2024</div>
+                    </div>
+                    <div class="timeline-description">
+                        <strong>Impact:</strong> Supported InfoImage banking platform serving 8 Fortune 500 clients (American Express, 
+                        Nevada State Bank), achieving 99.9% system uptime and 40% efficiency improvements through ETL optimization.
+                    </div>
+                    <ul class="timeline-list">
+                        <li><strong>ETL Pipeline Development:</strong> Developed SQL-based ETL pipeline handling 10,000+ monthly 
+                        documents with 99.9% data integrity for automated document processing workflows</li>
+                        <li><strong>PowerShell Automation:</strong> Built script eliminating 200GB+ monthly log accumulation, 
+                        improving system performance by 28% across client/server infrastructure</li>
+                        <li><strong>Zero-Downtime Migrations:</strong> Led data migrations during version upgrades, maintaining 
+                        99.9% system availability for production banking operations</li>
+                        <li><strong>API Testing & QA:</strong> Executed comprehensive testing using Postman, SOAPUI, JMeter across 
+                        Dev/UAT/SIT/Prod environments before production deployment</li>
+                        <li><strong>Production Support:</strong> Managed SQL Server databases, optimized query performance, reduced 
+                        incident resolution time by 30% for 8 Fortune 500 clients</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">ETL</span>
+                        <span class="tech-tag">PowerShell</span>
+                        <span class="tech-tag">Postman</span>
+                        <span class="tech-tag">SOAPUI</span>
+                        <span class="tech-tag">JMeter</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preksh Innovation -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Data Analytics / ML Intern</h3>
+                        <div class="timeline-company">Preksh Innovation (Computer Vision & AR/VR) | Bengaluru, India</div>
+                        <div class="timeline-duration">August 2021 - March 2022</div>
+                    </div>
+                    <div class="timeline-description">
+                        <strong>Impact:</strong> Developed computer vision solution for transportation logistics, achieving 96.6% 
+                        accuracy in automated pipe counting and eliminating manual labor requirements.
+                    </div>
+                    <ul class="timeline-list">
+                        <li><strong>Computer Vision System:</strong> Developed automated pipe counting using Python and OpenCV, 
+                        achieving 96.6% accuracy across 150+ test images</li>
+                        <li><strong>Image Processing Pipeline:</strong> Designed pipeline implementing edge detection, morphological 
+                        operations, and blob detection for feature extraction</li>
+                        <li><strong>Algorithm Optimization:</strong> Evaluated multiple blob detection algorithms (LoG, DoG, DoH) 
+                        to optimize circle recognition performance</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Image Processing</span>
+                        <span class="tech-tag">Blob Detection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title gradient-text">Featured Projects</h2>
+        <p class="section-subtitle">Real-World Impact Through Data-Driven Solutions</p>
+
+        <div class="projects-grid">
+            <!-- MassDOT Bridge -->
+            <div class="project-card" onclick="openModal('massdot')">
+                <div class="project-img">
+                    <i class="fas fa-bridge"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">MassDOT | Chelsea Street Bridge Analysis</h3>
+                    <p class="project-desc">
+                        Deep learning models predicting bridge lift times, improving accuracy from ±15 to ±5 minutes. 
+                        Analyzed 7+ years of data (9,000+ records) with real-time Streamlit dashboard.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">MLP</span>
+                        <span class="tech-tag">TabNet</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connecticut Home Sales -->
+            <div class="project-card" onclick="openModal('connecticut')">
+                <div class="project-img">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Connecticut Home Sales Trend Analysis</h3>
+                    <p class="project-desc">
+                        Processed 1M+ rows of real estate data ($424B, 404K+ transactions, 1999-2023). Tableau dashboard 
+                        revealing COVID impact and 5-10x regional price disparities.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">GIS Mapping</span>
+                        <span class="tech-tag">Statistical Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boston Crime -->
+            <div class="project-card" onclick="openModal('crime')">
+                <div class="project-img">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Boston Crime Analysis</h3>
+                    <p class="project-desc">
+                        ML models achieving 87% accuracy for predicting shooting incidents. Revealed 29.2% year-over-year 
+                        crime decrease with interactive GIS visualizations.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">ML Models</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">GIS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NYC Collision -->
+            <div class="project-card" onclick="openModal('nyc')">
+                <div class="project-img">
+                    <i class="fas fa-car-crash"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">NYC Motor Vehicle Collision Analysis</h3>
+                    <p class="project-desc">
+                        Cleaned large-scale collision datasets achieving 99% data integrity. Created interactive Tableau 
+                        dashboards revealing critical collision patterns and hotspots.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Data Cleaning</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">KPI Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cryptocurrency -->
+            <div class="project-card" onclick="openModal('crypto')">
+                <div class="project-img">
+                    <i class="fas fa-bitcoin"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Cryptocurrency Price Prediction</h3>
+                    <p class="project-desc">
+                        Developed 5 ML models (XGBoost, LSTM) achieving 67% F1-score and 97% recall across 7,310+ data points. 
+                        Engineered technical indicators (RSI, momentum) with hyperparameter tuning.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">GridSearchCV</span>
+                        <span class="tech-tag">ROC Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farmer Support -->
+            <div class="project-card" onclick="openModal('farmer')">
+                <div class="project-img">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Cost-Effective Farmer Support System</h3>
+                    <p class="project-desc">
+                        Implemented crop recommendation models using Random Forest, SVM, and Gradient Boosting achieving 
+                        92% accuracy with 35% processing time reduction.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">EDA</span>
+                        <span class="tech-tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2 class="section-title gradient-text">Technical Arsenal</h2>
+        <p class="section-subtitle">Tools & Technologies I Wield Daily</p>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="skill-title">Programming & Libraries</h3>
+                <p class="skill-list">
+                    Python (Pandas, NumPy, Scikit-learn)<br>
+                    R, SQL, VBA
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="skill-title">BI & Visualization</h3>
+                <p class="skill-list">
+                    Power BI, Tableau, Qlik<br>
+                    Streamlit, Excel (VBA, Macros)
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3 class="skill-title">Databases</h3>
+                <p class="skill-list">
+                    SQL Server, PostgreSQL<br>
+                    MongoDB, Presto SQL
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="skill-title">Data Engineering</h3>
+                <p class="skill-list">
+                    ETL/ELT Pipelines, PySpark<br>
+                    Data Warehousing, Power Automate
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="skill-title">Machine Learning & Cloud</h3>
+                <p class="skill-list">
+                    Azure AI Search, OpenCV<br>
+                    TensorFlow/Keras, ChatGPT RAG
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3 class="skill-title">APIs & Tools</h3>
+                <p class="skill-list">
+                    RESTful APIs, Postman<br>
+                    SOAP API, Git
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title gradient-text">Let's Build Something Amazing</h2>
+        <p class="section-subtitle">Open to Full-Time Opportunities | June 2026</p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>University Email</h4>
+                        <a href="mailto:guntnuranantha.p@northeastern.edu">guntnuranantha.p@northeastern.edu</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <h4>Personal Email</h4>
+                        <a href="mailto:gaprajwal06@gmail.com">gaprajwal06@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Phone</h4>
+                        <a href="tel:+18579199097">+1 (857) 919-9097</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-linkedin"></i>
+                    </div>
+                    <div>
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/prajwalga/" target="_blank">linkedin.com/in/prajwalga</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Boston, MA</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/prajwalga/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://public.tableau.com/app/profile/prajwal.guntnur.anantha/vizzes" target="_blank" class="social-link">
+                    <i class="fas fa-chart-bar"></i>
+                </a>
+                <a href="https://github.com/Prajwal-GA" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:gaprajwal06@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Prajwal Guntnur Anantha. Crafted with data and determination.</p>
+        </div>
+    </footer>
+
+    <!-- Modals (continuing in next message due to length...) -->
+<script>
+// Generate stars
+const starsContainer = document.getElementById('stars');
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.width = Math.random() * 3 + 'px';
+    star.style.height = star.style.width;
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    starsContainer.appendChild(star);
+}
+
+// Scroll effects
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Smooth scroll
+function scrollTo(id) {
+    const element = document.getElementById(id);
+    const offset = 80;
+    const elementPosition = element.offsetTop - offset;
+    window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+    });
+    toggleMenu(); // Close mobile menu if open
+}
+
+// Mobile menu toggle
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
+// Modal functions
+function openModal(id) {
+    const modal = document.getElementById(id + 'Modal');
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id + 'Modal');
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modals on outside click
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for reaching out! I\'ll get back to you soon.');
+    this.reset();
+});
+</script>
+
+<!-- Modal Content -->
+<div id="massdotModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('massdot')">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2>🌉 MassDOT | Chelsea Street Bridge Analysis</h2>
+        <p><strong>Duration:</strong> April - July 2025 | <strong>Partner:</strong> Massachusetts Department of Transportation</p>
+        
+        <h3>Project Overview</h3>
+        <p>Developed comprehensive predictive analytics solution for the Chelsea Street Bridge, optimizing operations and improving 
+        traffic management through data-driven decision making for one of Boston's critical infrastructure assets.</p>
+
+        <h3>Key Achievements</h3>
+        <ul>
+            <li>Analyzed 7+ years of historical bridge lift data covering 9,000+ operational records</li>
+            <li>Developed MLP and TabNet models achieving ±5-minute prediction accuracy (67% improvement from ±15-17 minute baseline)</li>
+            <li>Built interactive Streamlit dashboard with real-time forecasting for operational planning</li>
+            <li>Integrated weather data, tide information, and temporal patterns to enhance model performance</li>
+        </ul>
+
+        <h3>Technical Implementation</h3>
+        <p><strong>Data Processing:</strong> Cleaned 9,000+ records, handled missing values and outliers</p>
+        <p><strong>Models:</strong> TabNet (attention-based deep learning) and MLP with hyperparameter tuning</p>
+        <p><strong>Deployment:</strong> Production-ready Streamlit application for MassDOT stakeholders</p>
+
+        <p><strong>Tech Stack:</strong> Python, TensorFlow/Keras, TabNet, MLP, Streamlit, Pandas, NumPy, Scikit-learn</p>
+    </div>
+</div>
+
+<div id="connecticutModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('connecticut')">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2>🏠 Connecticut Home Sales Trend Analysis</h2>
+        <p><strong>Duration:</strong> September - December 2024</p>
+        
+        <h3>Project Overview</h3>
+        <p>Comprehensive 24-year analysis (1999-2023) of Connecticut's real estate market, processing 1M+ rows of transaction 
+        data to identify market trends, price patterns, and investment opportunities.</p>
+
+        <h3>Key Achievements</h3>
+        <ul>
+            <li>Processed 1M+ rows totaling $424B across 404K+ transactions</li>
+            <li>Identified COVID-driven $40B market peak in 2021 and 55% subsequent decline</li>
+            <li>Built Tableau dashboard with geographic heat mapping revealing 5-10x price variation</li>
+            <li>Identified high-value markets (Greenwich $2M avg) and undervalued investment opportunities</li>
+        </ul>
+
+        <h3>Key Findings</h3>
+        <ul>
+            <li>Residential properties dominate (70-75% of transactions)</li>
+            <li>Southwestern coastal regions show highest sales volumes</li>
+            <li>Significant disparities: Greenwich ($2M) vs Bridgeport ($200-400K)</li>
+            <li>2021 unprecedented market surge driven by COVID-19</li>
+        </ul>
+
+        <p><strong>Tech Stack:</strong> Tableau, SQL, Python, Statistical Analysis, GIS</p>
+    </div>
+</div>
+
+<div id="crimeModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('crime')">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2>🚨 Boston Crime Analysis</h2>
+        <p><strong>Duration:</strong> January - March 2025</p>
+        
+        <h3>Project Overview</h3>
+        <p>Comprehensive analysis of Boston crime data to identify patterns, predict incidents, and provide actionable 
+        insights for public safety improvements.</p>
+
+        <h3>Key Achievements</h3>
+        <ul>
+            <li>Analyzed crime data revealing 29.2% year-over-year decrease</li>
+            <li>Trained ML models (Logistic Regression, K-Means) achieving 87% accuracy for shooting prediction</li>
+            <li>Created interactive Tableau dashboards with GIS mapping for hotspot visualization</li>
+            <li>Identified high-risk areas and temporal patterns for resource allocation</li>
+        </ul>
+
+        <h3>Business Impact</h3>
+        <p>Provides law enforcement with data-driven insights for resource allocation, crime prevention strategies, 
+        and community safety initiatives. 87% prediction accuracy enables proactive intervention.</p>
+
+        <p><strong>Tech Stack:</strong> Python, R, Scikit-learn, Tableau, GIS, Logistic Regression, K-Means</p>
+    </div>
+</div>
+
+<div id="nycModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('nyc')">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2>🚗 NYC Motor Vehicle Collision Analysis</h2>
+        <p><strong>Duration:</strong> September - December 2024</p>
+        
+        <h3>Project Overview</h3>
+        <p>Large-scale collision data analysis to identify patterns, improve road safety, and support data-driven 
+        decision making for NYC transportation planning.</p>
+
+        <h3>Key Achievements</h3>
+        <ul>
+            <li>Cleaned and preprocessed datasets ensuring 99% data integrity</li>
+            <li>Created interactive Tableau dashboards with calculated fields</li>
+            <li>Identified critical collision patterns and geographic hotspots</li>
+            <li>Accelerated decision-making by 30% through actionable insights</li>
+        </ul>
+
+        <h3>Technical Implementation</h3>
+        <p>Extensive data cleaning, KPI identification, and dashboard development with advanced Tableau features 
+        including calculated fields and dynamic filtering.</p>
+
+        <p><strong>Tech Stack:</strong> Tableau, SQL, Data Cleaning, Statistical Analysis, KPI Development</p>
+    </div>
+</div>
+
+<div id="cryptoModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('crypto')">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2>₿ Cryptocurrency Price Prediction & Trading Models</h2>
+        
+        <h3>Project Overview</h3>
+        <p>Development of ML models for cryptocurrency price prediction and algorithmic trading strategies 
+        using advanced time series analysis and feature engineering.</p>
+
+        <h3>Key Achievements</h3>
+        <ul>
+            <li>Developed 5 ML models: Decision Tree, XGBoost, LSTM</li>
+            <li>Achieved 67% F1-score and 97% recall across 7,310+ data points</li>
+            <li>Engineered technical indicators (RSI, momentum features)</li>
+            <li>Improved model performance by 15% through hyperparameter tuning</li>
+            <li>Designed weighted scoring methodology using ROC curves</li>
+        </ul>
+
+        <h3>Technical Details</h3>
+        <p>Implemented ensemble methods, deep learning (LSTM for time series), and comprehensive feature engineering 
+        with technical indicators. GridSearchCV for hyperparameter optimization.</p>
+
+        <p><strong>Tech Stack:</strong> Python, XGBoost, LSTM, TensorFlow, GridSearchCV, ROC Analysis, Pandas</p>
+    </div>
+</div>
+
+<div id="farmerModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close" onclick="closeModal('farmer')">
+            <i class="fas fa-times"></i>
+        </div>
+        <h2>🌾 Cost-Effective Farmer Support System</h2>
+        <p><strong>Duration:</strong> December 2021 - May 2022</p>
+        
+        <h3>Project Overview</h3>
+        <p>ML-powered crop recommendation system based on soil data analysis, supporting the Soil Health Card 
+        initiative for agricultural optimization.</p>
+
+        <h3>Key Achievements</h3>
+        <ul>
+            <li>Implemented models using Random Forest, SVM, Gradient Boosting</li>
+            <li>Achieved 92% accuracy in crop recommendations</li>
+            <li>Reduced processing time by 35% with optimized ML pipelines</li>
+            <li>Performed comprehensive EDA with Matplotlib and Seaborn visualizations</li>
+            <li>Directly supported Soil Health Card government initiative</li>
+        </ul>
+
+        <h3>Social Impact</h3>
+        <p>Enables farmers to make data-driven decisions on crop selection based on soil conditions, potentially 
+        improving yields and supporting sustainable agriculture practices.</p>
+
+        <p><strong>Tech Stack:</strong> Python, Scikit-learn, Random Forest, SVM, Pandas, NumPy, Matplotlib, Seaborn</p>
+    </div>
+</div>
+
+</body>
+</html>
